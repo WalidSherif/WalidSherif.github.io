@@ -4,97 +4,242 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Walid Sherif — Engineering Portfolio</title>
-  <meta name="description" content="Walid Sherif engineering portfolio: control systems, CFD/FEA, power electronics, renewable energy." />
-  <style>
-    :root{--text:#0f172a;--muted:#475569;--line:#e2e8f0;--bg:#ffffff;--card:#f8fafc;--accent:#0b63f6;--max:980px}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:var(--max);margin:0 auto;padding:28px 16px}
-    header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0}
-    .brand{font-weight:700;color:var(--text)}
-    nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
-    .small{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:12px}
-    .card{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:14px}
-    .card h3{margin:0 0 6px 0}
-    .card p{margin:0;color:var(--muted)}
-    footer{border-top:1px solid var(--line);margin-top:40px}
-  </style>
+  <meta name="description" content="Walid Sherif portfolio: control systems, power electronics, CFD/FEA, renewable energy." />
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="brand">Walid Sherif — Engineering Portfolio</div>
-      <div class="small">Control Systems • CFD/FEA • Power Electronics • Renewable Energy</div>
-      <nav>
+
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Walid Sherif</div>
+      <div class="menu">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-      </nav>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="card">
+        <div class="kicker">Engineering Portfolio</div>
+        <div class="h1">Control Systems • Power Electronics • CFD/FEA</div>
+        <p class="lead">
+          Renewable Energy Engineering undergraduate with hands-on experience in simulation, design, and analysis across
+          electromechanical systems, thermal management, and sustainable energy applications.
+        </p>
+
+        <div class="btns">
+          <a class="btn primary" href="#projects">View Projects <span>PDF reports</span></a>
+          <a class="btn" href="mailto:waleedshereef65@gmail.com">Email <span>waleedshereef65@gmail.com</span></a>
+          <a class="btn" href="https://linkedin.com/in/walid-sherif-205522318" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+        </div>
+
+        <div class="hr"></div>
+        <div class="small">
+          Location: Egypt / UAE (open to opportunities) • Expected graduation: 2027
+        </div>
+      </div>
+
+      <div class="card" id="about">
+        <strong>About</strong>
+        <div class="small">
+          Electromechanical Engineer undergraduate focused on validated engineering work, technical documentation, and practical tools.
+        </div>
+        <div class="hr"></div>
+        <ul class="list">
+          <li>Tools: MATLAB/Simulink, ANSYS, SolidWorks, CATIA, AutoCAD, COMSOL, Python.</li>
+          <li>Interests: Control design, system modeling, power electronics, wind/renewable systems, CFD/FEA.</li>
+          <li>Focus: Clean documentation + reproducible results + portfolio-ready reports.</li>
+        </ul>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section id="about">
-      <h1>Walid Sherif</h1>
-      <p class="small">Renewable Energy Engineering Undergraduate (Expected 2027) • Electromechanical Engineering</p>
-      <p>
-        Electromechanical engineering undergraduate focused on modeling, simulation, and design across control systems,
-        power electronics, and CAE workflows.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Selected Projects</h2>
+  <section class="section" id="education">
+    <div class="container">
+      <h2>Education</h2>
       <div class="grid">
         <div class="card">
-          <h3>Advanced Control Project</h3>
-          <p><a href="https://github.com/WalidSherif/WalidSherif/blob/main/projects/Adv_Control_Project_Report%20(1).pdf">Open PDF report</a></p>
+          <strong>B.Sc. Renewable Energy Engineering</strong>
+          <div class="small">Zewail City University, Egypt • Expected 2027</div>
+          <div class="hr"></div>
+          <div class="small">Relevant focus: control systems, power electronics, aerodynamics, CAE workflows.</div>
         </div>
         <div class="card">
-          <h3>Power Electronics Project</h3>
-          <p><a href="https://github.com/WalidSherif/WalidSherif/blob/main/projects/power_electronics_project%20(4)%20(1).pdf">Open PDF report</a></p>
+          <strong>Highlights</strong>
+          <ul class="list">
+            <li>Project-based learning with full technical reports.</li>
+            <li>Interest in internships and entry-level roles (summer 2026).</li>
+          </ul>
         </div>
         <div class="card">
-          <h3>Transmission Line Design</h3>
-          <p><a href="https://github.com/WalidSherif/WalidSherif/blob/main/projects/TL%20DESIGN.pdf">Open PDF report</a></p>
-        </div>
-        <div class="card">
-          <h3>Cold Plate Design (FEA)</h3>
-          <p><a href="https://github.com/WalidSherif/WalidSherif/blob/main/projects/cold_plate.pdf">Open PDF report</a></p>
+          <strong>Links</strong>
+          <ul class="list">
+            <li><a href="https://github.com/WalidSherif" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://WalidSherif.github.io/" target="_blank" rel="noreferrer">Portfolio Website</a></li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>MATLAB/Simulink, ANSYS, SolidWorks, CATIA, AutoCAD, COMSOL</li>
-        <li>Control systems, power electronics, CFD/FEA, renewable energy systems</li>
-        <li>Python, technical documentation</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>Email: <a href="mailto:waleedshereef65@gmail.com">waleedshereef65@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/walid-sherif-205522318">walid-sherif-205522318</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container small">
-      © <span id="y"></span> Walid Sherif
     </div>
-  </footer>
+  </section>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <section class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Project Engineer — Intern</strong>
+          <div class="small">NBHH, Abu Dhabi, UAE • Jul 2025 – Present</div>
+          <div class="hr"></div>
+          <ul class="list">
+            <li>Assisted with infrastructure and utility layouts using AutoCAD and BIM workflows.</li>
+            <li>Supported on-site supervision and technical documentation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>Sustainability Analyst</strong>
+          <div class="small">EURUS – Zewail City • Feb 2025 – Jul 2025</div>
+          <div class="hr"></div>
+          <ul class="list">
+            <li>Contributed to wind turbine competition work (Hanze University, Netherlands).</li>
+            <li>Supported sustainable design evaluation and system analysis.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>ODEs JTA (Teaching Assistant)</strong>
+          <div class="small">Zewail City • Sep 2024 – Feb 2025</div>
+          <div class="hr"></div>
+          <ul class="list">
+            <li>Tutored peers and supported problem-solving sessions.</li>
+            <li>Improved technical communication and mentoring skills.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <h2>Projects (PDF Reports)</h2>
+      <div class="grid">
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/Adv_Control_Project_Report%20(1).pdf" target="_blank" rel="noreferrer">
+          <h3>Advanced Control Project</h3>
+          <p>Control Systems • MATLAB/Simulink • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/AERODYNAMICS_PROJECT%20(2).pdf" target="_blank" rel="noreferrer">
+          <h3>Aerodynamics Project</h3>
+          <p>Aerodynamics • Analysis • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/CAD_Project%20(5).pdf" target="_blank" rel="noreferrer">
+          <h3>CAD / Modeling Project</h3>
+          <p>CAD • Solid modeling • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/DC_motor_with_torque_control-4.pdf" target="_blank" rel="noreferrer">
+          <h3>DC Motor With Torque Control</h3>
+          <p>Control • Modeling • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/MACHINE_DESIGN%20(1).pdf" target="_blank" rel="noreferrer">
+          <h3>Machine Design Project</h3>
+          <p>Mechanical Design • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/cold_plate.pdf" target="_blank" rel="noreferrer">
+          <h3>ASME Cold Plate Design (Thermal / FEA)</h3>
+          <p>Thermal Management • FEA • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/control_project-3.pdf" target="_blank" rel="noreferrer">
+          <h3>Aircraft Pitch / Classical Control</h3>
+          <p>Classical Control • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/power_electronics_project%20(4)%20(1).pdf" target="_blank" rel="noreferrer">
+          <h3>Power Electronics Project</h3>
+          <p>Inverter / Modulation • Report PDF</p>
+        </a>
+
+        <a class="project" href="https://raw.githubusercontent.com/WalidSherif/WalidSherif/main/projects/TL%20DESIGN.pdf" target="_blank" rel="noreferrer">
+          <h3>Transmission Line Design</h3>
+          <p>Optimization • Report PDF</p>
+        </a>
+
+      </div>
+      <p class="small" style="margin-top:12px">
+        Tip: Each card opens the PDF directly (raw link) in a new tab.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Software</strong>
+          <ul class="list">
+            <li>MATLAB/Simulink, Python</li>
+            <li>ANSYS, COMSOL</li>
+            <li>SolidWorks, CATIA, AutoCAD</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Engineering</strong>
+          <ul class="list">
+            <li>Control systems (modeling, analysis)</li>
+            <li>Power electronics (inverters, modulation)</li>
+            <li>CFD/FEA and engineering reporting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Languages</strong>
+          <ul class="list">
+            <li>Arabic (Native)</li>
+            <li>English (Proficient)</li>
+            <li>French (Intermediate)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Email</strong>
+          <div class="small"><a href="mailto:waleedshereef65@gmail.com">waleedshereef65@gmail.com</a></div>
+        </div>
+        <div class="card">
+          <strong>LinkedIn</strong>
+          <div class="small"><a href="https://linkedin.com/in/walid-sherif-205522318" target="_blank" rel="noreferrer">walid-sherif-205522318</a></div>
+        </div>
+        <div class="card">
+          <strong>GitHub</strong>
+          <div class="small"><a href="https://github.com/WalidSherif" target="_blank" rel="noreferrer">github.com/WalidSherif</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">
+      © <span id="year"></span> Walid Sherif • Built on GitHub Pages
+    </div>
+  </div>
+
+  <script src="./assets/main.js"></script>
 </body>
 </html>
