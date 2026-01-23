@@ -8,8 +8,12 @@
   --text:#e9eef7;
   --muted: rgba(233,238,247,.68);
 
+  /* Base accent used for text glow */
   --accent:#2ecc71;
-  --accent2:#a8ff78;
+  --accent2:#4f8cff;
+
+  /* Colorful gradient */
+  --grad: linear-gradient(90deg, #2ecc71, #00d2ff, #4f8cff);
 
   --shadow: 0 18px 60px rgba(0,0,0,.55);
 
@@ -29,8 +33,9 @@ body{
   color: var(--text);
 
   background:
-    radial-gradient(900px 650px at 18% 10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
-    radial-gradient(900px 650px at 85% 25%, rgba(255,200,120,.06), transparent 55%),
+    radial-gradient(900px 650px at 16% 10%, rgba(46,204,113,.14), transparent 60%),
+    radial-gradient(900px 650px at 55% 15%, rgba(0,210,255,.10), transparent 62%),
+    radial-gradient(900px 650px at 88% 25%, rgba(79,140,255,.10), transparent 60%),
     linear-gradient(180deg, var(--bg1), var(--bg0));
 }
 
@@ -62,23 +67,6 @@ a{color:inherit}
 }
 .menu a:hover{color:var(--text)}
 
-/* Theme button */
-.themeBtn{
-  cursor:pointer;
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 12.5px;
-  color: var(--text);
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.10);
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
-}
-.themeBtn:hover{
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent) 35%, rgba(255,255,255,.10));
-}
-.themeBtn:active{transform: translateY(0) scale(.98)}
-
 /* Hero */
 .hero{padding:34px 0 8px}
 .hero-grid{
@@ -90,8 +78,11 @@ a{color:inherit}
   .hero-grid{grid-template-columns: 1fr}
 }
 .kicker{
-  color: color-mix(in srgb, var(--accent) 90%, white);
-  font-weight: 750;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
   font-size: 13px;
   letter-spacing: .35px;
 }
@@ -132,7 +123,6 @@ h2{
   padding: 16px;
   box-shadow: var(--shadow);
 
-  /* STRONG morph motion */
   transition:
     transform .32s cubic-bezier(.2,.8,.2,1),
     border-color .22s ease,
@@ -145,11 +135,13 @@ h2{
 .card:hover, .project:hover{
   transform: translateY(-6px) scale(1.01);
   border-radius: 26px;
-  border-color: color-mix(in srgb, var(--accent) 38%, var(--border));
+  border-color: rgba(255,255,255,.14);
   box-shadow:
     0 26px 90px rgba(0,0,0,.65),
     0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 40px color-mix(in srgb, var(--accent) 18%, transparent);
+    0 0 46px rgba(46,204,113,.12),
+    0 0 46px rgba(0,210,255,.10),
+    0 0 46px rgba(79,140,255,.10);
 }
 
 .small{
@@ -180,21 +172,25 @@ h2{
   text-decoration:none;
   font-size: 13px;
   color: var(--text);
-  transition: transform .18s ease, border-color .18s ease, border-radius .18s ease;
+  transition: transform .18s ease, border-color .18s ease, border-radius .18s ease, box-shadow .18s ease;
 }
 .btn span{color: var(--muted);font-size: 12px}
 .btn:hover{
   transform: translateY(-2px);
   border-radius: 16px;
-  border-color: color-mix(in srgb, var(--accent) 26%, rgba(255,255,255,.10));
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 16px 40px rgba(0,0,0,.45);
 }
 .btn:active{transform: translateY(0) scale(.99)}
 
 .btn.primary{
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, rgba(255,255,255,.10));
-  background: color-mix(in srgb, var(--accent) 16%, rgba(255,255,255,.03));
-  box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 18%, transparent);
+  border: 0;
+  background: var(--grad);
+  color: #081017;
+  font-weight: 800;
+  box-shadow: 0 14px 44px rgba(0,210,255,.12);
 }
+.btn.primary span{color: rgba(8,16,23,.75)}
 
 /* Project text */
 .project{display:block;text-decoration:none}
