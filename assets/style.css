@@ -9,9 +9,9 @@
   --text:#e9eef7;
   --muted: rgba(233,238,247,.68);
 
-  /* One accent only (professional) */
-  --accent:#4f8cff;
-  --accent2:#4f8cff;
+  /* Renewable + mechanical accent (green + soft lime) */
+  --accent:#2ecc71;
+  --accent2:#a8ff78;
 
   --shadow: 0 18px 60px rgba(0,0,0,.55);
 
@@ -24,6 +24,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
@@ -31,9 +32,10 @@ body{
   line-height: 1.65;
   color: var(--text);
 
-  /* Calm background: subtle blue glow only */
+  /* Green glow + subtle warm highlight (mechanical/metal feel) */
   background:
-    radial-gradient(900px 650px at 18% 10%, rgba(79,140,255,.10), transparent 60%),
+    radial-gradient(900px 650px at 18% 10%, rgba(46,204,113,.12), transparent 60%),
+    radial-gradient(900px 650px at 85% 25%, rgba(255,200,120,.06), transparent 55%),
     linear-gradient(180deg, var(--bg1), var(--bg0));
 }
 
@@ -52,7 +54,7 @@ a{color:inherit}
   height:64px;
 }
 
-/* BIGGER NAME */
+/* BIG NAME */
 .brand{
   font-weight: 900;
   letter-spacing: .8px;
@@ -79,7 +81,7 @@ a{color:inherit}
   .hero-grid{grid-template-columns: 1fr}
 }
 .kicker{
-  color: rgba(79,140,255,.95);
+  color: rgba(46,204,113,.95);
   font-weight: 750;
   font-size: 13px;
   letter-spacing: .35px;
@@ -123,7 +125,7 @@ h2{
 }
 .card:hover{
   transform: translateY(-2px);
-  border-color: rgba(79,140,255,.22);
+  border-color: rgba(46,204,113,.22);
 }
 
 .small{
@@ -156,11 +158,13 @@ h2{
   color: var(--text);
 }
 .btn span{color: var(--muted);font-size: 12px}
-.btn:hover{border-color: rgba(79,140,255,.26)}
+.btn:hover{border-color: rgba(46,204,113,.26)}
+
+/* Formal primary: not too neon */
 .btn.primary{
-  border: 1px solid rgba(79,140,255,.35);
-  background: rgba(79,140,255,.14);
-  box-shadow: 0 14px 40px rgba(79,140,255,.12);
+  border: 1px solid rgba(46,204,113,.35);
+  background: rgba(46,204,113,.14);
+  box-shadow: 0 14px 40px rgba(46,204,113,.10);
 }
 
 /* Project cards */
@@ -178,7 +182,7 @@ h2{
 .project p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
 .project:hover{
   transform: translateY(-2px);
-  border-color: rgba(79,140,255,.28);
+  border-color: rgba(46,204,113,.28);
 }
 
 /* Footer */
