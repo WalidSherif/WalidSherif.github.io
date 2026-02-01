@@ -1,5 +1,5 @@
 // Set current year
-document.getElementById("year")?.replaceChildren(new Date().getFullYear());
+document.querySelector(".footer")?.innerHTML = document.querySelector(".footer")?.innerHTML.replace(/2026/g, new Date().getFullYear());
 
 // Smooth scroll active nav highlighting
 const links = [...document.querySelectorAll('.menu a[href^="#"]')];
