@@ -1,0 +1,8 @@
+---
+title: "DC Motor With Torque Control"
+description: "Motor modeling with torque control strategy and response testing."
+categories: [Control Systems, Simulation]
+files:
+  - name: "Report (PDF)"
+    path: "../projects/DC_motor_with_torque_control-4.pdf"
+---
