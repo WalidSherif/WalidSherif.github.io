@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ 'style.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Home</a>
+    </nav>
+    <button id="theme-toggle">Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p>{{ page.description }}</p>{% endif %}
+
+    {% if page.image %}
+      {% assign projectfolder = page.path | split: '/' | slice: 1, 1 | first %}
+      {% assign projectbase = "projects/" | append: projectfolder | append: "/" %}
+      <div class="project-image" style="margin-bottom: 20px;">
+        <img src="{{ projectbase | append: page.image | relative_url }}" alt="{{ page.title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+    {% endif %}
+
+    <div class="content">
+      {{ content }}
+    </div>
+
+    {% if page.files %}
+      {% assign projectfolder = page.path | split: '/' | slice: 1, 1 | first %}
+      {% assign projectbase = "projects/" | append: projectfolder | append: "/" %}
+
+      {% for file in page.files %}
+        {% assign ext = file.path | split: '.' | last | downcase %}
+        {% if ext == "mp4" or ext == "webm" or ext == "ogg" %}
+          <h3>{{ file.name }}</h3>
+          <div class="video-container" style="margin-bottom: 20px;">
+            <video width="100%" controls>
+              <source src="{{ projectbase | append: file.path | relative_url }}" type="video/{{ ext }}">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <h2>Additional Files</h2>
+      <ul>
+        {% for file in page.files %}
+          {% if file.path contains "http" %}
+            <li><a href="{{ file.path }}" target="_blank" rel="noopener">{{ file.name }}</a></li>
+          {% else %}
+            <li><a href="{{ projectbase | append: file.path | relative_url }}" target="_blank" rel="noopener">{{ file.name }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Walid Sherif</p>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    const applyTheme = (theme) => {
+      if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.textContent = 'Toggle Light Mode';
+      } else {
+        body.classList.remove('dark-mode');
+        themeToggle.textContent = 'Toggle Dark Mode';
+      }
+    };
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      applyTheme(newTheme);
+    });
+  </script>
+</body>
+</html>
