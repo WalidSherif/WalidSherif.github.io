@@ -3,44 +3,46 @@ layout: default
 title: Walid Sherif — Engineering Portfolio
 ---
 
+<!-- Top contact block -->
 <div id="contact" class="contact">
   <p><strong>Location:</strong> Giza, Egypt • Open to UAE opportunities</p>
   <p><strong>Email:</strong> <a href="mailto:waleedshereef65@gmail.com">waleedshereef65@gmail.com</a></p>
-  <p><button id="contact-me-btn">Contact</button></p>
+  <p>
+    <button id="contact-me-btn" type="button">Contact</button>
+  </p>
 </div>
 
+<!-- Skills dropdown -->
 <div class="dropdown">
-  <button id="skills-toggle-btn" class="dropdown-btn">View Skills</button>
-  <div id="skills-dropdown" class="dropdown-content" style="display: none;">
+  <button id="skills-toggle-btn" class="dropdown-btn" type="button">View Skills</button>
+  <div id="skills-dropdown" class="dropdown-content" style="display:none;">
     <div class="skill-bubble">Control Systems</div>
     <div class="skill-bubble">Classical Control</div>
     <div class="skill-bubble">System Modeling</div>
     <div class="skill-bubble">MATLAB</div>
     <div class="skill-bubble">Simulink</div>
     <div class="skill-bubble">Power Electronics</div>
-    <div class="skill-bubble">Inverters & Modulation</div>
     <div class="skill-bubble">CFD</div>
     <div class="skill-bubble">FEA</div>
     <div class="skill-bubble">Thermal Management</div>
     <div class="skill-bubble">ANSYS</div>
-    <div class="skill-bubble">COMSOL</div>
     <div class="skill-bubble">SolidWorks</div>
     <div class="skill-bubble">CATIA</div>
     <div class="skill-bubble">AutoCAD</div>
-    <div class="skill-bubble">Wind / Renewable Systems</div>
+    <div class="skill-bubble">Renewable Energy</div>
     <div class="skill-bubble">Engineering Reporting</div>
     <div class="skill-bubble">Python</div>
     <div class="skill-bubble">Git</div>
   </div>
 </div>
 
-<!-- Modal -->
-<div id="contact-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Contact Request</h2>
+<!-- Contact modal (hidden by default via CSS below) -->
+<div id="contact-modal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <button class="close" id="contact-close-btn" type="button" aria-label="Close">&times;</button>
+    <h2 id="contact-modal-title">Contact Request</h2>
 
-    <!-- TODO: replace action with YOUR Formspree endpoint when ready -->
+    <!-- Replace action with your own Formspree endpoint when ready -->
     <form id="contact-form" action="https://formspree.io/f/xrbaqwwn" method="POST">
       <label>Contact method:</label>
       <div id="contact-options">
@@ -67,102 +69,104 @@ title: Walid Sherif — Engineering Portfolio
 
 <p>
   This site collects my key engineering projects (control systems, power electronics, CFD/FEA, and renewable energy).
-  Projects are organized as cards with categories and individual project pages.
-  Source: <a href="https://github.com/WalidSherif/WalidSherif.github.io" target="_blank" rel="noopener">GitHub repository</a>.
+  Source:
+  <a href="https://github.com/WalidSherif/WalidSherif.github.io" target="_blank" rel="noopener">GitHub repository</a>.
 </p>
 
 <div class="section">
   <h2>Projects</h2>
 
-  {% comment %} Collect unique categories from site.projects {% endcomment %}
-  {% assign all_categories = "" | split: "," %}
-  {% for p in site.projects %}
-    {% assign all_categories = all_categories | push: p.categories %}
-  {% endfor %}
-  {% assign unique_categories = all_categories | join: ", " | split: ", " | uniq | sort %}
+  {% if site.projects and site.projects.size > 0 %}
 
-  <div id="category-filters">
-    <button class="filter-btn active" data-category="all">All</button>
-    {% for category in unique_categories %}
-      {% if category != "" %}
-        <button class="filter-btn" data-category="{{ category | slugify }}">{{ category }}</button>
+    {%- comment -%} Build unique categories list correctly {%- endcomment -%}
+    {% assign all_categories = "" | split: "," %}
+    {% for p in site.projects %}
+      {% if p.categories %}
+        {% for c in p.categories %}
+          {% assign all_categories = all_categories | push: c %}
+        {% endfor %}
       {% endif %}
     {% endfor %}
-  </div>
+    {% assign unique_categories = all_categories | uniq | sort %}
 
-  {% assign priority_categories = "Control Systems,Power Electronics,CFD,FEA,Thermal,CAD,Renewable Energy,Aerodynamics,Mechanical Design" | split: "," %}
-
-  <h3>Highlighted Projects</h3>
-  <div class="projects-grid">
-    {% for project in site.projects %}
-      {% assign is_priority = false %}
-      {% for cat in project.categories %}
-        {% if priority_categories contains cat %}
-          {% assign is_priority = true %}
+    <div id="category-filters">
+      <button class="filter-btn active" data-category="all" type="button">All</button>
+      {% for category in unique_categories %}
+        {% if category != "" %}
+          <button class="filter-btn" data-category="{{ category | slugify }}" type="button">{{ category }}</button>
         {% endif %}
       {% endfor %}
+    </div>
 
-      {% if is_priority %}
-        <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
-          {% if project.image %}
-            {% assign project_folder = project.path | split: '/' | slice: 1, 1 | first %}
-            {% assign project_base = 'projects/' | append: project_folder | append: '/' %}
-            <div class="project-card-image" style="margin-bottom: 1rem;">
-              <img src="{{ project_base | append: project.image | relative_url }}" alt="{{ project.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px;">
-            </div>
+    {% assign priority_categories = "Control Systems,Power Electronics,CFD,FEA,Thermal,CAD,Renewable Energy,Aerodynamics,Mechanical Design" | split: "," %}
+
+    <h3>Highlighted Projects</h3>
+    <div class="projects-grid">
+      {% for project in site.projects %}
+        {% assign is_priority = false %}
+        {% for cat in project.categories %}
+          {% if priority_categories contains cat %}
+            {% assign is_priority = true %}
           {% endif %}
+        {% endfor %}
 
-          <div class="project-title">
-            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+        {% if is_priority %}
+          <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
+            <div class="project-title">
+              <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+            </div>
+
+            {% if project.description %}
+              <div class="project-description">{{ project.description }}</div>
+            {% endif %}
+
+            {% if project.categories %}
+              <div class="project-categories">
+                {% for category in project.categories %}
+                  <span class="category-tag">{{ category }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
-
-          {% if project.description %}
-            <div class="project-description">{{ project.description }}</div>
-          {% endif %}
-
-          {% if project.categories %}
-            <div class="project-categories">
-              {% for category in project.categories %}
-                <span class="category-tag">{{ category }}</span>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-
-  <h3>Other Projects</h3>
-  <div class="projects-grid">
-    {% for project in site.projects %}
-      {% assign is_priority = false %}
-      {% for cat in project.categories %}
-        {% if priority_categories contains cat %}
-          {% assign is_priority = true %}
         {% endif %}
       {% endfor %}
+    </div>
 
-      {% unless is_priority %}
-        <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
-          <div class="project-title">
-            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-          </div>
-
-          {% if project.description %}
-            <div class="project-description">{{ project.description }}</div>
+    <h3>Other Projects</h3>
+    <div class="projects-grid">
+      {% for project in site.projects %}
+        {% assign is_priority = false %}
+        {% for cat in project.categories %}
+          {% if priority_categories contains cat %}
+            {% assign is_priority = true %}
           {% endif %}
+        {% endfor %}
 
-          {% if project.categories %}
-            <div class="project-categories">
-              {% for category in project.categories %}
-                <span class="category-tag">{{ category }}</span>
-              {% endfor %}
+        {% unless is_priority %}
+          <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
+            <div class="project-title">
+              <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
             </div>
-          {% endif %}
-        </div>
-      {% endunless %}
-    {% endfor %}
-  </div>
+
+            {% if project.description %}
+              <div class="project-description">{{ project.description }}</div>
+            {% endif %}
+
+            {% if project.categories %}
+              <div class="project-categories">
+                {% for category in project.categories %}
+                  <span class="category-tag">{{ category }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <p><strong>No projects found.</strong> Create files in <code>_projects/</code> (example: <code>_projects/advanced-control.md</code>) to show cards here.</p>
+  {% endif %}
 </div>
 
 <div class="section">
@@ -170,24 +174,53 @@ title: Walid Sherif — Engineering Portfolio
   <p>MIT — feel free to reuse code with attribution.</p>
 </div>
 
+<!-- Small fallback CSS (doesn't fight your main style.css; just ensures modal/cards are usable) -->
+<style>
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+  .project-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:14px}
+  body.dark-mode .project-card{background:#1f1f1f;border-color:#333}
+  #category-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+  .modal{display:none;position:fixed;z-index:50;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.4)}
+  .modal.show{display:block}
+  .modal-content{background:#fff;margin:10% auto;padding:18px;border:1px solid #888;width:92%;max-width:520px;border-radius:10px}
+  body.dark-mode .modal-content{background:#1f1f1f;border-color:#333}
+  .close{float:right;font-size:28px;font-weight:700;background:transparent;border:0;cursor:pointer;line-height:1}
+</style>
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Contact Modal Logic
+document.addEventListener("DOMContentLoaded", function () {
+  // ===== Modal =====
   const modal = document.getElementById("contact-modal");
-  const btn = document.getElementById("contact-me-btn");
-  const span = document.getElementsByClassName("close")[0];
+  const openBtn = document.getElementById("contact-me-btn");
+  const closeBtn = document.getElementById("contact-close-btn");
 
-  if (btn) btn.onclick = () => modal.style.display = "block";
-  if (span) span.onclick = () => modal.style.display = "none";
-  window.onclick = (event) => { if (event.target === modal) modal.style.display = "none"; };
+  const openModal = () => {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  };
+  const closeModal = () => {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  };
 
-  // Dynamic Contact Form Logic
+  if (openBtn) openBtn.addEventListener("click", openModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Dynamic Contact Form label/type
   const contactOptions = document.getElementById("contact-options");
   const contactDetailLabel = document.getElementById("contact-detail-label");
   const contactDetailInput = document.getElementById("contact-detail");
 
   if (contactOptions) {
-    contactOptions.addEventListener("change", function(e) {
+    contactOptions.addEventListener("change", (e) => {
       if (e.target && e.target.name === "contact_method") {
         contactDetailLabel.textContent = `Your ${e.target.value}:`;
         contactDetailInput.type = (e.target.value === "Email") ? "email" : "tel";
@@ -195,41 +228,32 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Skills Dropdown Logic
+  // ===== Skills dropdown =====
   const skillsToggleBtn = document.getElementById("skills-toggle-btn");
   const skillsDropdown = document.getElementById("skills-dropdown");
-
   if (skillsToggleBtn) {
-    skillsToggleBtn.onclick = function() {
+    skillsToggleBtn.addEventListener("click", () => {
       skillsDropdown.style.display = (skillsDropdown.style.display === "block") ? "none" : "block";
-    };
+    });
   }
 
-  // Category Filtering Logic
+  // ===== Category filtering =====
   const filters = document.querySelector("#category-filters");
   if (!filters) return;
-
   const projectCards = document.querySelectorAll(".project-card");
 
-  filters.addEventListener("click", function(e) {
+  filters.addEventListener("click", (e) => {
     if (e.target.tagName !== "BUTTON") return;
 
     const active = filters.querySelector(".active");
     if (active) active.classList.remove("active");
     e.target.classList.add("active");
 
-    const selectedCategory = e.target.getAttribute("data-category");
-
-    projectCards.forEach(card => {
-      const cardCategories = card.getAttribute("data-categories") || "";
-      card.style.display =
-        (selectedCategory === "all" || cardCategories.includes(selectedCategory))
-        ? "block"
-        : "none";
+    const selected = e.target.getAttribute("data-category");
+    projectCards.forEach((card) => {
+      const cats = (card.getAttribute("data-categories") || "");
+      card.style.display = (selected === "all" || cats.includes(selected)) ? "block" : "none";
     });
   });
-
-  // Open modal if URL has #contact-me-btn
-  if (window.location.hash === "#contact-me-btn" && modal) modal.style.display = "block";
 });
 </script>
