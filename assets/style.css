@@ -1,221 +1,381 @@
-:root{
-  --bg0:#0b0f14;
-  --bg1:#0f1620;
+/* Basic styles for the portfolio site */
 
-  --card: rgba(255,255,255,.045);
-  --border: rgba(255,255,255,.09);
+body {
 
-  --text:#e9eef7;
-  --muted: rgba(233,238,247,.68);
+font-family: Arial, sans-serif;
 
-  /* Base accent used for text glow */
-  --accent:#2ecc71;
-  --accent2:#4f8cff;
+margin: 0;
 
-  /* Colorful gradient */
-  --grad: linear-gradient(90deg, #2ecc71, #00d2ff, #4f8cff);
+padding: 0;
 
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
+line-height: 1.6;
 
-  --fs-body: clamp(14px, 0.95vw + 10px, 16px);
-  --fs-small: clamp(12px, 0.65vw + 9px, 13px);
-  --fs-h2: clamp(18px, 1.25vw + 14px, 22px);
-  --fs-h1: clamp(30px, 3.2vw + 16px, 46px);
-}
+color: #333;
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  font-size: var(--fs-body);
-  line-height: 1.65;
-  color: var(--text);
+background-color: #f9f9f9;
 
-  background:
-    radial-gradient(900px 650px at 16% 10%, rgba(46,204,113,.14), transparent 60%),
-    radial-gradient(900px 650px at 55% 15%, rgba(0,210,255,.10), transparent 62%),
-    radial-gradient(900px 650px at 88% 25%, rgba(79,140,255,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg0));
-}
 
-a{color:inherit}
-.container{max-width:1100px;margin:0 auto;padding:0 18px}
 
-/* Nav */
-.nav{
-  position:sticky;top:0;z-index:10;
-  backdrop-filter: blur(12px);
-  background: rgba(11,15,20,.62);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  height:64px;
-}
-.brand{
-  font-weight: 900;
-  letter-spacing: .8px;
-  font-size: clamp(22px, 2.0vw + 14px, 34px);
-  line-height: 1;
-}
-.menu{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.menu a{
-  text-decoration:none;
-  font-size: 13px;
-  color: var(--muted);
-}
-.menu a:hover{color:var(--text)}
+header {
 
-/* Hero */
-.hero{padding:34px 0 8px}
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.35fr .95fr;
-  gap:18px;
-}
-@media (max-width: 900px){
-  .hero-grid{grid-template-columns: 1fr}
-}
-.kicker{
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: .35px;
-}
-.h1{
-  margin-top:10px;
-  font-size: var(--fs-h1);
-  line-height: 1.12;
-  font-weight: 900;
-}
-.lead{
-  margin:10px 0 0;
-  color: var(--muted);
-  font-size: clamp(13.5px, 0.95vw + 10px, 15.5px);
-  line-height: 1.7;
-}
+background-color: #0366d6;
 
-.section{padding:26px 0}
-h2{
-  margin:0 0 12px;
-  font-size: var(--fs-h2);
-  letter-spacing:.2px;
-}
+color: white;
 
-/* Grid + cards */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:14px;
-}
-@media (max-width: 900px){
-  .grid{grid-template-columns: 1fr}
-}
+padding: 1rem;
 
-.card, .project{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: var(--shadow);
+position: relative;
 
-  transition:
-    transform .32s cubic-bezier(.2,.8,.2,1),
-    border-color .22s ease,
-    border-radius .32s cubic-bezier(.2,.8,.2,1),
-    background .22s ease,
-    box-shadow .32s cubic-bezier(.2,.8,.2,1);
-  will-change: transform, border-radius;
-}
 
-.card:hover, .project:hover{
-  transform: translateY(-6px) scale(1.01);
-  border-radius: 26px;
-  border-color: rgba(255,255,255,.14);
-  box-shadow:
-    0 26px 90px rgba(0,0,0,.65),
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 46px rgba(46,204,113,.12),
-    0 0 46px rgba(0,210,255,.10),
-    0 0 46px rgba(79,140,255,.10);
-}
 
-.small{
-  font-size: var(--fs-small);
-  color: var(--muted);
-  line-height: 1.55;
-}
-.hr{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+nav a {
 
-/* Lists */
-.list{
-  margin:0;
-  padding-left:18px;
-  color: var(--muted);
-  font-size: clamp(13px, 0.85vw + 10px, 14px);
-  line-height: 1.65;
-}
-.list li{margin:6px 0}
+color: white;
 
-/* Buttons */
-.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.btn{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 12px;
-  border-radius: 12px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  text-decoration:none;
-  font-size: 13px;
-  color: var(--text);
-  transition: transform .18s ease, border-color .18s ease, border-radius .18s ease, box-shadow .18s ease;
-}
-.btn span{color: var(--muted);font-size: 12px}
-.btn:hover{
-  transform: translateY(-2px);
-  border-radius: 16px;
-  border-color: rgba(255,255,255,.16);
-  box-shadow: 0 16px 40px rgba(0,0,0,.45);
-}
-.btn:active{transform: translateY(0) scale(.99)}
+text-decoration: none;
 
-.btn.primary{
-  border: 0;
-  background: var(--grad);
-  color: #081017;
-  font-weight: 800;
-  box-shadow: 0 14px 44px rgba(0,210,255,.12);
-}
-.btn.primary span{color: rgba(8,16,23,.75)}
+margin-right: 1rem;
 
-/* Project text */
-.project{display:block;text-decoration:none}
-.project h3{margin:0 0 8px;font-size:15px}
-.project p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
 
-/* Caption under each project */
-.cap{
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  color: rgba(233,238,247,.62);
-  font-size: 12.5px;
-  line-height: 1.5;
-}
 
-/* Footer */
-.footer{
-  padding:18px 0 26px;
-  color: rgba(233,238,247,.55);
-  font-size: 12px;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
+nav a:hover {
 
-/* Respect reduced-motion users */
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important;scroll-behavior:auto !important;}
-}
+text-decoration: underline;
+
+
+
+main {
+
+max-width: 1200px;
+
+margin: 0 auto;
+
+padding: 2rem;
+
+
+
+h1, h2, h3 {
+
+color: #222;
+
+
+
+.content {
+
+margin-top: 2rem;
+
+
+
+footer {
+
+background-color: #f0f0f0;
+
+text-align: center;
+
+padding: 1rem;
+
+margin-top: 2rem;
+
+
+
+/* Additional styles for project pages */
+
+ul {
+
+list-style-type: none;
+
+padding: 0;
+
+
+
+li {
+
+margin-bottom: 0.5rem;
+
+
+
+a {
+
+color: #0366d6;
+
+text-decoration: none;
+
+
+
+a:hover {
+
+text-decoration: underline;
+
+
+
+.skills-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+gap: 1rem;
+
+
+
+.skill-card {
+
+background-color: #e1ecf4;
+
+color: #39739d;
+
+padding: 1rem;
+
+border-radius: 8px;
+
+text-align: center;
+
+font-weight: 500;
+
+
+
+/* Dark mode styles */
+
+body.dark-mode {
+
+background-color: #121212;
+
+color: #e0e0e0;
+
+
+
+body.dark-mode header {
+
+background-color: #1f1f1f;
+
+border-bottom: 1px solid #333;
+
+
+
+body.dark-mode h1,
+
+body.dark-mode h2,
+
+body.dark-mode h3 {
+
+color: #f5f5f5;
+
+
+
+body.dark-mode a {
+
+color: #bb86fc;
+
+
+
+body.dark-mode nav a {
+
+color: #bb86fc;
+
+
+
+body.dark-mode footer {
+
+background-color: #1f1f1f;
+
+border-top: 1px solid #333;
+
+
+
+#theme-toggle {
+
+position: absolute;
+
+top: 1rem;
+
+right: 1rem;
+
+background: #bb86fc;
+
+color: #121212;
+
+border: none;
+
+padding: 0.5rem;
+
+cursor: pointer;
+
+
+
+body.dark-mode .project-card {
+
+background-color: #1f1f1f;
+
+box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+
+
+
+body.dark-mode .project-description {
+
+color: #e0e0e0;
+
+
+
+body.dark-mode .category-tag {
+
+background-color: #333;
+
+color: #e0e0e0;
+
+
+
+body.dark-mode .modal-content {
+
+background-color: #1f1f1f;
+
+border: 1px solid #333;
+
+
+
+body.dark-mode .filter-btn {
+
+background-color: #333;
+
+color: #e0e0e0;
+
+border-color: #555;
+
+
+
+body.dark-mode .filter-btn.active {
+
+background-color: #bb86fc;
+
+color: #121212;
+
+border-color: #bb86fc;
+
+
+
+body.dark-mode #contact-me-btn {
+
+background-color: #bb86fc;
+
+color: #121212;
+
+
+
+body.dark-mode .close {
+
+color: #aaa;
+
+
+
+body.dark-mode .close:hover,
+
+body.dark-mode .close:focus {
+
+color: white;
+
+
+
+/* Dropdown Button (View Skills) */
+
+.dropdown-btn {
+
+padding: 0.6rem 1.2rem; /* A bit bigger */
+
+font-size: 1rem; /* Adjusted font size */
+
+cursor: pointer;
+
+background-color: #e1ecf4; /* Light mode background, consistent with filter-btn */
+
+color: #39739d; /* Light mode text color, consistent with filter-btn */
+
+border: 1px solid #39739d; /* Light mode border, consistent with filter-btn */
+
+border-radius: 16px; /* Consistent with filter-btn */
+
+transition: all 0.2s ease;
+
+
+
+.dropdown-btn:hover {
+
+background-color: #c1d9e9; /* Light mode hover background, consistent with filter-btn */
+
+
+
+/* Dropdown Content (Skills List) */
+
+.dropdown-content {
+
+display: flex; /* Use flexbox for skill bubbles */
+
+flex-wrap: wrap; /* Allow bubbles to wrap */
+
+gap: 0.5rem; /* Space between bubbles - increased for vertical spacing */
+
+padding: 1rem;
+
+background-color: #fefefe; /* Light mode background */
+
+border: 1px solid #ddd;
+
+border-radius: 8px;
+
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+z-index: 1;
+
+margin-top: 0.5rem;
+
+
+
+/* Skill Bubbles - identical to .category-tag */
+
+.skill-bubble {
+
+display: inline-block; /* Make bubbles fit content and display inline */
+
+background-color: #e1ecf4; /* Light mode background, identical to category-tag */
+
+color: #39739d; /* Light mode text color, identical to category-tag */
+
+padding: 0.25rem 0.5rem; /* Identical to category-tag */
+
+border-radius: 12px; /* Identical to category-tag */
+
+font-size: 0.8rem; /* Identical to category-tag */
+
+font-weight: 500; /* Identical to category-tag */
+
+white-space: nowrap; /* Prevent text from wrapping inside bubble */
+
+margin-bottom: 0.15rem; /* Added for vertical spacing */
+
+
+
+/* Dark mode specific styles for dropdown and skills */
+
+body.dark-mode .dropdown-btn {
+
+background-color: #bb86fc; /* Dark mode background, consistent with filter-btn.active */
+
+color: #121212; /* Dark mode text color, consistent with filter-btn.active */
+
+border-color: #bb86fc; /* Dark mode border, consistent with filter-btn.active */
+
+
+
+body.dark-mode .dropdown-content {
+
+background-color: #1f1f1f; /* Dark mode background, consistent with modal-content */
+
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+
+border: 1px solid #333; /* Dark mode border, consistent with modal-content */
+
+
+
+body.dark-mode .skill-bubble {
+
+background-color: #333; /* Dark mode background, identical to category-tag */
+
+color: #e0e0e0; /* Dark mode text color, identical to category-tag */
