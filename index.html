@@ -1,247 +1,235 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Walid Sherif — Engineering Portfolio</title>
-  <meta name="description" content="Walid Sherif portfolio: control systems, power electronics, CFD/FEA, renewable energy." />
-  <link rel="stylesheet" href="./assets/style.css?v=20" />
-</head>
-<body>
+---
+layout: default
+title: Walid Sherif — Engineering Portfolio
+---
 
-  <div class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Walid Sherif</div>
+<div id="contact" class="contact">
+  <p><strong>Location:</strong> Giza, Egypt • Open to UAE opportunities</p>
+  <p><strong>Email:</strong> <a href="mailto:waleedshereef65@gmail.com">waleedshereef65@gmail.com</a></p>
+  <p><button id="contact-me-btn">Contact</button></p>
+</div>
 
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+<div class="dropdown">
+  <button id="skills-toggle-btn" class="dropdown-btn">View Skills</button>
+  <div id="skills-dropdown" class="dropdown-content" style="display: none;">
+    <div class="skill-bubble">Control Systems</div>
+    <div class="skill-bubble">Classical Control</div>
+    <div class="skill-bubble">System Modeling</div>
+    <div class="skill-bubble">MATLAB</div>
+    <div class="skill-bubble">Simulink</div>
+    <div class="skill-bubble">Power Electronics</div>
+    <div class="skill-bubble">Inverters & Modulation</div>
+    <div class="skill-bubble">CFD</div>
+    <div class="skill-bubble">FEA</div>
+    <div class="skill-bubble">Thermal Management</div>
+    <div class="skill-bubble">ANSYS</div>
+    <div class="skill-bubble">COMSOL</div>
+    <div class="skill-bubble">SolidWorks</div>
+    <div class="skill-bubble">CATIA</div>
+    <div class="skill-bubble">AutoCAD</div>
+    <div class="skill-bubble">Wind / Renewable Systems</div>
+    <div class="skill-bubble">Engineering Reporting</div>
+    <div class="skill-bubble">Python</div>
+    <div class="skill-bubble">Git</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Contact Request</h2>
+
+    <!-- TODO: replace action with YOUR Formspree endpoint when ready -->
+    <form id="contact-form" action="https://formspree.io/f/xrbaqwwn" method="POST">
+      <label>Contact method:</label>
+      <div id="contact-options">
+        <input type="radio" id="contact-email" name="contact_method" value="Email" checked>
+        <label for="contact-email">Email</label>
+
+        <input type="radio" id="contact-whatsapp" name="contact_method" value="WhatsApp">
+        <label for="contact-whatsapp">WhatsApp</label>
+
+        <input type="radio" id="contact-telegram" name="contact_method" value="Telegram">
+        <label for="contact-telegram">Telegram</label>
       </div>
-    </div>
+
+      <label id="contact-detail-label" for="contact-detail">Your Email:</label>
+      <input type="text" id="contact-detail" name="contact_detail" required>
+
+      <label for="reason">Brief Reason:</label>
+      <textarea id="reason" name="reason" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<p>
+  This site collects my key engineering projects (control systems, power electronics, CFD/FEA, and renewable energy).
+  Projects are organized as cards with categories and individual project pages.
+  Source: <a href="https://github.com/WalidSherif/WalidSherif.github.io" target="_blank" rel="noopener">GitHub repository</a>.
+</p>
+
+<div class="section">
+  <h2>Projects</h2>
+
+  {% comment %} Collect unique categories from site.projects {% endcomment %}
+  {% assign all_categories = "" | split: "," %}
+  {% for p in site.projects %}
+    {% assign all_categories = all_categories | push: p.categories %}
+  {% endfor %}
+  {% assign unique_categories = all_categories | join: ", " | split: ", " | uniq | sort %}
+
+  <div id="category-filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    {% for category in unique_categories %}
+      {% if category != "" %}
+        <button class="filter-btn" data-category="{{ category | slugify }}">{{ category }}</button>
+      {% endif %}
+    {% endfor %}
   </div>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="card">
-        <div class="kicker">Engineering Portfolio</div>
-        <div class="h1">Control Systems • Power Electronics • CFD/FEA</div>
-        <p class="lead">
-          Renewable Energy Engineering undergraduate with hands-on experience in simulation, design, and analysis across
-          electromechanical systems, thermal management, and sustainable energy applications.
-        </p>
+  {% assign priority_categories = "Control Systems,Power Electronics,CFD,FEA,Thermal,CAD,Renewable Energy,Aerodynamics,Mechanical Design" | split: "," %}
 
-        <div class="btns">
-          <a class="btn primary" href="#projects">View Projects <span>PDF reports</span></a>
-          <a class="btn" href="mailto:waleedshereef65@gmail.com">Email <span>waleedshereef65@gmail.com</span></a>
-          <a class="btn" href="https://linkedin.com/in/walid-sherif-205522318" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+  <h3>Highlighted Projects</h3>
+  <div class="projects-grid">
+    {% for project in site.projects %}
+      {% assign is_priority = false %}
+      {% for cat in project.categories %}
+        {% if priority_categories contains cat %}
+          {% assign is_priority = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if is_priority %}
+        <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
+          {% if project.image %}
+            {% assign project_folder = project.path | split: '/' | slice: 1, 1 | first %}
+            {% assign project_base = 'projects/' | append: project_folder | append: '/' %}
+            <div class="project-card-image" style="margin-bottom: 1rem;">
+              <img src="{{ project_base | append: project.image | relative_url }}" alt="{{ project.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px;">
+            </div>
+          {% endif %}
+
+          <div class="project-title">
+            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+          </div>
+
+          {% if project.description %}
+            <div class="project-description">{{ project.description }}</div>
+          {% endif %}
+
+          {% if project.categories %}
+            <div class="project-categories">
+              {% for category in project.categories %}
+                <span class="category-tag">{{ category }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
-
-        <div class="hr"></div>
-        <div class="small">
-          Location: Egypt / UAE (open to opportunities) • Expected graduation: 2027
-        </div>
-      </div>
-
-      <div class="card" id="about">
-        <strong>About</strong>
-        <div class="small">
-          Electromechanical Engineer undergraduate focused on validated engineering work, technical documentation, and
-          practical tools.
-        </div>
-        <div class="hr"></div>
-        <ul class="list">
-          <li>Tools: MATLAB/Simulink, ANSYS, SolidWorks, CATIA, AutoCAD, COMSOL, Python.</li>
-          <li>Interests: Control design, system modeling, power electronics, wind/renewable systems, CFD/FEA.</li>
-          <li>Focus: Clean documentation + reproducible results + portfolio-ready reports.</li>
-        </ul>
-      </div>
-    </div>
-  </header>
-
-  <section class="section" id="education">
-    <div class="container">
-      <h2>Education</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>B.Sc. Renewable Energy Engineering</strong>
-          <div class="small">Zewail City University, Egypt • Expected 2027</div>
-          <div class="hr"></div>
-          <div class="small">Relevant focus: control systems, power electronics, aerodynamics, CAE workflows.</div>
-        </div>
-
-        <div class="card">
-          <strong>Links</strong>
-          <ul class="list">
-            <li><a href="https://github.com/WalidSherif" target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a href="https://WalidSherif.github.io/" target="_blank" rel="noreferrer">Portfolio Website</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="experience">
-    <div class="container">
-      <h2>Experience</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>Project Engineer — Intern</strong>
-          <div class="small">NBHH, Abu Dhabi, UAE • Jul 2025 – Present</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Assisted with infrastructure and utility layouts using AutoCAD and BIM workflows.</li>
-            <li>Supported on-site supervision and technical documentation.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <strong>Sustainability Analyst</strong>
-          <div class="small">EURUS – Zewail City • Feb 2025 – Jul 2025</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Contributed to wind turbine competition work (Hanze University, Netherlands).</li>
-            <li>Supported sustainable design evaluation and system analysis.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <strong>ODEs JTA (Teaching Assistant)</strong>
-          <div class="small">Zewail City • Sep 2024 – Feb 2025</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Tutored peers and supported problem-solving sessions.</li>
-            <li>Improved technical communication and mentoring skills.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="projects">
-    <div class="container">
-      <h2>Projects (PDF Reports)</h2>
-      <div class="grid">
-
-        <a class="project" href="./projects/Adv_Control_Project_Report (1).pdf" target="_blank" rel="noreferrer">
-          <h3>Advanced Control Project</h3>
-          <p>Control Systems • MATLAB/Simulink • Report PDF</p>
-          <div class="cap">Controller design, stability analysis, and simulation validation.</div>
-        </a>
-
-        <a class="project" href="./projects/aerodynamics_project_2.pdf(2).pdf" target="_blank" rel="noreferrer">
-          <h3>Aerodynamics Project</h3>
-          <p>Aerodynamics • Analysis • Report PDF</p>
-          <div class="cap">Aerodynamic performance evaluation and key parameter insights.</div>
-        </a>
-
-        <a class="project" href="./projects/CAD_Project (5).pdf" target="_blank" rel="noreferrer">
-          <h3>CAD / Modeling Project</h3>
-          <p>CAD • Solid modeling • Report PDF</p>
-          <div class="cap">Complete CAD workflow from concept to final assembly modeling.</div>
-        </a>
-
-        <a class="project" href="./projects/DC_motor_with_torque_control-4.pdf" target="_blank" rel="noreferrer">
-          <h3>DC Motor With Torque Control</h3>
-          <p>Control • Modeling • Report PDF</p>
-          <div class="cap">Motor modeling with torque control strategy and response testing.</div>
-        </a>
-
-        <a class="project" href="./projects/MACHINE_DESIGN (1).pdf" target="_blank" rel="noreferrer">
-          <h3>Machine Design Project</h3>
-          <p>Mechanical Design • Report PDF</p>
-          <div class="cap">Design calculations, sizing, and mechanical verification steps.</div>
-        </a>
-
-        <a class="project" href="./projects/cold_plate.pdf" target="_blank" rel="noreferrer">
-          <h3>ASME Cold Plate Design (Thermal / FEA)</h3>
-          <p>Thermal Management • FEA • Report PDF</p>
-          <div class="cap">Thermal design optimization with simulation-based validation.</div>
-        </a>
-
-        <a class="project" href="./projects/control_project-3.pdf" target="_blank" rel="noreferrer">
-          <h3>Aircraft Pitch / Classical Control</h3>
-          <p>Classical Control • Report PDF</p>
-          <div class="cap">Classical control design for aircraft pitch dynamics and tuning.</div>
-        </a>
-
-        <a class="project" href="./projects/power_electronics_project (4) (1).pdf" target="_blank" rel="noreferrer">
-          <h3>Power Electronics Project</h3>
-          <p>Inverter / Modulation • Report PDF</p>
-          <div class="cap">Converter design and modulation analysis with performance results.</div>
-        </a>
-
-        <a class="project" href="./projects/TL DESIGN.pdf" target="_blank" rel="noreferrer">
-          <h3>Transmission Line Design</h3>
-          <p>Optimization • Report PDF</p>
-          <div class="cap">Transmission line sizing/optimization and design trade-offs.</div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>Software</strong>
-          <ul class="list">
-            <li>MATLAB/Simulink, Python</li>
-            <li>ANSYS, COMSOL</li>
-            <li>SolidWorks, CATIA, AutoCAD</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Engineering</strong>
-          <ul class="list">
-            <li>Control systems (modeling, analysis)</li>
-            <li>Power electronics (inverters, modulation)</li>
-            <li>CFD/FEA and engineering reporting</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Languages</strong>
-          <ul class="list">
-            <li>Arabic (Native)</li>
-            <li>English (Proficient)</li>
-            <li>French (Intermediate)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>Email</strong>
-          <div class="small"><a href="mailto:waleedshereef65@gmail.com">waleedshereef65@gmail.com</a></div>
-        </div>
-        <div class="card">
-          <strong>LinkedIn</strong>
-          <div class="small"><a href="https://linkedin.com/in/walid-sherif-205522318" target="_blank" rel="noreferrer">walid-sherif-205522318</a></div>
-        </div>
-        <div class="card">
-          <strong>GitHub</strong>
-          <div class="small"><a href="https://github.com/WalidSherif" target="_blank" rel="noreferrer">github.com/WalidSherif</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    <div class="container">
-      © <span id="year"></span> Walid Sherif •
-    </div>
+      {% endif %}
+    {% endfor %}
   </div>
 
-  <script src="./assets/main.js?v=20"></script>
-</body>
-</html>
+  <h3>Other Projects</h3>
+  <div class="projects-grid">
+    {% for project in site.projects %}
+      {% assign is_priority = false %}
+      {% for cat in project.categories %}
+        {% if priority_categories contains cat %}
+          {% assign is_priority = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% unless is_priority %}
+        <div class="project-card" data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
+          <div class="project-title">
+            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+          </div>
+
+          {% if project.description %}
+            <div class="project-description">{{ project.description }}</div>
+          {% endif %}
+
+          {% if project.categories %}
+            <div class="project-categories">
+              {% for category in project.categories %}
+                <span class="category-tag">{{ category }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <h2>License</h2>
+  <p>MIT — feel free to reuse code with attribution.</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Contact Modal Logic
+  const modal = document.getElementById("contact-modal");
+  const btn = document.getElementById("contact-me-btn");
+  const span = document.getElementsByClassName("close")[0];
+
+  if (btn) btn.onclick = () => modal.style.display = "block";
+  if (span) span.onclick = () => modal.style.display = "none";
+  window.onclick = (event) => { if (event.target === modal) modal.style.display = "none"; };
+
+  // Dynamic Contact Form Logic
+  const contactOptions = document.getElementById("contact-options");
+  const contactDetailLabel = document.getElementById("contact-detail-label");
+  const contactDetailInput = document.getElementById("contact-detail");
+
+  if (contactOptions) {
+    contactOptions.addEventListener("change", function(e) {
+      if (e.target && e.target.name === "contact_method") {
+        contactDetailLabel.textContent = `Your ${e.target.value}:`;
+        contactDetailInput.type = (e.target.value === "Email") ? "email" : "tel";
+      }
+    });
+  }
+
+  // Skills Dropdown Logic
+  const skillsToggleBtn = document.getElementById("skills-toggle-btn");
+  const skillsDropdown = document.getElementById("skills-dropdown");
+
+  if (skillsToggleBtn) {
+    skillsToggleBtn.onclick = function() {
+      skillsDropdown.style.display = (skillsDropdown.style.display === "block") ? "none" : "block";
+    };
+  }
+
+  // Category Filtering Logic
+  const filters = document.querySelector("#category-filters");
+  if (!filters) return;
+
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filters.addEventListener("click", function(e) {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const active = filters.querySelector(".active");
+    if (active) active.classList.remove("active");
+    e.target.classList.add("active");
+
+    const selectedCategory = e.target.getAttribute("data-category");
+
+    projectCards.forEach(card => {
+      const cardCategories = card.getAttribute("data-categories") || "";
+      card.style.display =
+        (selectedCategory === "all" || cardCategories.includes(selectedCategory))
+        ? "block"
+        : "none";
+    });
+  });
+
+  // Open modal if URL has #contact-me-btn
+  if (window.location.hash === "#contact-me-btn" && modal) modal.style.display = "block";
+});
+</script>
