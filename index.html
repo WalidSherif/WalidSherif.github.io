@@ -162,11 +162,15 @@ description: Engineering portfolio of Walid Sherif, Renewable Energy Engineering
             {% endif %}
           </div>
 
-          <div class="project-card__body">
-            <p class="project-card__category">{{ project.category }}</p>
-            <h3 class="project-card__title">{{ project.title }}</h3>
-            <p class="project-card__description">{{ project.description }}</p>
-          </div>
+         <div class="project-card__body">
+  <p class="project-card__category">{{ project.category }}</p>
+  <h3 class="project-card__title">{{ project.title }}</h3>
+  <p class="project-card__description">{{ project.description }}</p>
+
+  {% if project.result %}
+    <p class="project-card__result"><strong>Key Result:</strong> {{ project.result }}</p>
+  {% endif %}
+</div>
         </a>
       {% endfor %}
     </div>
