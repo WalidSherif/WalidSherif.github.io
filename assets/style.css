@@ -696,3 +696,35 @@ html[data-theme="dark"] .site-header {
     height: 520px;
   }
 }
+.interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.interest-pill {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.expertise-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.expertise-list li + li {
+  margin-top: 8px;
+}
+
+.project-card__result {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
