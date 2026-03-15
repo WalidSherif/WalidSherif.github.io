@@ -7,7 +7,7 @@ group: mechanical
 date_label: May 2025
 order: 4
 image: "/img/projects/machine-design-gearbox.png"
-pdf: "/projects/transmission-line.pdf"
+pdf: "/projects/machine-design-gearbox.pdf"
 tools:
   - Autodesk Inventor
   - SOLIDWORKS
