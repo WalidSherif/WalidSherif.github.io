@@ -728,3 +728,133 @@ html[data-theme="dark"] .site-header {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+/* Better use of wide desktop space */
+
+:root {
+  --container: 1320px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.summary-side-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.summary-side-card h3 {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+}
+
+.quick-facts {
+  display: grid;
+  gap: 14px;
+}
+
+.quick-fact {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.quick-fact__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.quick-fact__value {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.research-expertise-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.research-panel,
+.tools-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.research-panel h3,
+.tools-panel h3 {
+  margin: 0 0 18px;
+  font-size: 1.3rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.interest-pill {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.expertise-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.expertise-list li + li {
+  margin-top: 8px;
+}
+
+.project-card__result {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  .about-layout,
+  .research-expertise-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
