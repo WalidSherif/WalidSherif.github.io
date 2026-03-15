@@ -23,3 +23,4 @@ highlights:
 This project investigated a cold-plate thermal-management solution for high-power electronic cooling. Multiple internal channel and fin concepts were compared using a structured screening process based on both thermal and hydraulic performance.
 
 The study combined simulation, engineering calculations, and trade-off analysis to identify a practical design with strong cooling capability and acceptable pressure-drop characteristics. The final report documented assumptions, design constraints, and concept selection logic.
+result: Compared 10 candidate concepts and selected the best-performing cold-plate design for 350 W thermal management.
