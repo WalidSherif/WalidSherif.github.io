@@ -1,0 +1,75 @@
+---
+layout: default
+---
+<section class="project-hero">
+  <div class="container">
+    <a class="back-link" href="{{ '/' | relative_url }}#projects">← Back to portfolio</a>
+
+    <div class="project-hero-grid">
+      <div>
+        <span class="eyebrow">{{ page.category }}</span>
+        <h1 class="project-title">{{ page.title }}</h1>
+        {% if page.description %}
+          <p class="project-lead">{{ page.description }}</p>
+        {% endif %}
+
+        <div class="meta-list">
+          {% if page.date_label %}
+            <div><strong>Date:</strong> {{ page.date_label }}</div>
+          {% endif %}
+          {% if page.tools %}
+            <div><strong>Tools:</strong> {{ page.tools | join: ", " }}</div>
+          {% endif %}
+        </div>
+
+        {% if page.highlights %}
+        <section class="project-section">
+          <h2>Project Highlights</h2>
+          <ul class="highlight-list">
+            {% for item in page.highlights %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+
+        <div class="button-row">
+          {% if page.pdf %}
+            <a class="button button-primary" href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">Open full PDF</a>
+          {% endif %}
+          <a class="button button-secondary" href="{{ '/' | relative_url }}#contact">Contact</a>
+        </div>
+      </div>
+
+      {% if page.image %}
+      <div class="project-cover-card">
+        <img class="project-cover" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="project-content-section">
+  <div class="container project-content-grid">
+    <article class="project-body prose">
+      {{ content }}
+    </article>
+
+    {% if page.pdf %}
+    <aside class="pdf-panel">
+      <div class="pdf-panel-header">
+        <h2>Embedded Report</h2>
+        <a href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+      <div class="pdf-frame-wrapper">
+        <iframe
+          class="pdf-frame"
+          src="{{ page.pdf | relative_url }}#toolbar=1&navpanes=0&view=FitH"
+          title="{{ page.title }} PDF">
+        </iframe>
+      </div>
+    </aside>
+    {% endif %}
+  </div>
+</section>
