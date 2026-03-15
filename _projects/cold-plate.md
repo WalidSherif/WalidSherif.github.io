@@ -1,12 +1,13 @@
 ---
+layout: project
 title: Cold Plate Thermal Management Design Study
 description: Comparative cold-plate design study for power-electronics cooling with thermal, hydraulic, and material-efficiency evaluation.
 category: Mechanical / CFD
 group: mechanical
 date_label: May 2025
 order: 2
-image: /img/projects/cold-plate-design.png
-pdf: /pdf/cold-plate-design.pdf
+image: "/img/projects/cold-plate.png"
+pdf: "/projects/cold_plate.pdf"
 tools:
   - COMSOL Multiphysics
   - Python
@@ -19,17 +20,6 @@ highlights:
   - Identified the best-performing concept and documented design assumptions, constraints, and comparison results.
 ---
 
-## Project Summary
+This project investigated a cold-plate thermal-management solution for high-power electronic cooling. Multiple internal channel and fin concepts were compared using a structured screening process based on both thermal and hydraulic performance.
 
-This project was completed within the ASME Cold Plate Design Competition context and focused on balancing heat dissipation capability against hydraulic and manufacturing constraints.
-
-## Scope
-
-- Cold-plate geometry comparison and screening.
-- Thermal-resistance and pressure-drop assessment.
-- Figure-of-merit based ranking of concepts.
-- Structured reporting of assumptions, boundary conditions, and results.
-
-## Outcome
-
-The project emphasizes engineering trade-off analysis for thermal management applications in power electronics.
+The study combined simulation, engineering calculations, and trade-off analysis to identify a practical design with strong cooling capability and acceptable pressure-drop characteristics. The final report documented assumptions, design constraints, and concept selection logic.
