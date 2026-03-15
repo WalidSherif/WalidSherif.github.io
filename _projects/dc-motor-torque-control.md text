@@ -1,12 +1,13 @@
 ---
+layout: project
 title: DC Motor Torque Control
 description: Electrical modeling and comparison of torque-control strategies for a shunt DC motor under different control methods.
 category: Controls / Machines
 group: controls
 date_label: May 2025
 order: 7
-image: /img/projects/dc-motor-torque-control.png
-pdf: /pdf/dc-motor-torque-control.pdf
+image: "/img/projects/dc-motor-torque-control.png"
+pdf: "/projects/DC_motor_with_torque_control-4.pdf"
 tools:
   - MATLAB
   - Electric Machines
@@ -18,17 +19,6 @@ highlights:
   - Summarized trade-offs in performance, losses, and controllability across the tested methods.
 ---
 
-## Project Summary
+This project studied torque-control behavior in a shunt DC motor through mathematical modeling and comparison of multiple control methods. The analysis focused on how electrical parameter changes influence torque-speed characteristics and operating regions.
 
-This project explored multiple torque-control strategies for DC motors from a modeling and comparative-analysis perspective.
-
-## Scope
-
-- Motor-equation derivation and analytical formulation.
-- Control-method comparison.
-- MATLAB-based torque-speed visualization.
-- Performance interpretation for each method.
-
-## Outcome
-
-The report presents a clear electrical-machine control study grounded in equations, plots, and method comparison.
+The results highlighted the differences between several practical control approaches and provided engineering insight into controllability, efficiency, and performance trade-offs in DC motor operation.
