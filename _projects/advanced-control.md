@@ -23,3 +23,4 @@ highlights:
 This project focused on real-time speed control of a DC motor using experimental modeling and state-space controller design. A first-order model was identified from measured data, then used to build a feedback controller with integral action.
 
 The controller was implemented through hardware interfacing and validated experimentally. The work emphasized practical control implementation, real-time testing, and interpretation of closed-loop performance.
+result: Achieved stable closed-loop motor-speed tracking through identified modeling, state feedback, and integral action.
