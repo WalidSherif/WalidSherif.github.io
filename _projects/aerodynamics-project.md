@@ -22,3 +22,4 @@ highlights:
 This project focused on analytical airfoil generation and computational flow analysis for a Joukowski airfoil using MATLAB. The work examined flow structure, velocity distribution, pressure behavior, and aerodynamic performance indicators under subsonic conditions.
 
 The study combined mathematical modeling with engineering interpretation to evaluate how the airfoil geometry and angle of attack affect lift and moment characteristics. Numerical outputs and visualizations were used to support the final aerodynamic analysis.
+result: Modeled subsonic aerodynamic flow at 125 m/s over a 1.25 m chord Joukowski airfoil.
