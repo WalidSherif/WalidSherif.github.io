@@ -1,12 +1,13 @@
 ---
+layout: project
 title: HAWT Blade CFD, One-Way FSI, and Modal Analysis
 description: Integrated CAE workflow for a NACA 2424 horizontal-axis wind turbine blade combining 3D CFD, one-way FSI, and modal analysis.
 category: Mechanical / CFD
 group: mechanical
 date_label: January 2026
 order: 1
-image: /img/projects/hawt-blade-cfd-fsi.png
-pdf: /pdf/hawt-blade-cfd-fsi.pdf
+image: "/img/projects/cad-project.png"
+pdf: "/projects/CAD_Project%20%285%29.pdf"
 tools:
   - ANSYS Fluent
   - ANSYS Workbench
@@ -19,17 +20,6 @@ highlights:
   - Conducted modal analysis and compared natural frequencies with operating conditions to assess resonance risk.
 ---
 
-## Project Summary
+This project developed a complete CAE workflow for the analysis of a horizontal-axis wind turbine blade. The work combined aerodynamic simulation, structural loading transfer, and modal evaluation to study both performance and mechanical reliability.
 
-This project focused on the performance and structural assessment of a horizontal-axis wind turbine blade based on the NACA 2424 airfoil.
-
-## Scope
-
-- Aerodynamic analysis of the rotating blade using CFD.
-- Pressure-load transfer to the structural model through one-way FSI.
-- Pre-stressed modal analysis for dynamic safety assessment.
-- Validation through comparison with relevant literature workflows.
-
-## My Contribution
-
-This work highlights a simulation-driven approach to turbine-blade evaluation, combining fluid, structural, and modal perspectives in one report.
+A three-dimensional CFD model was used to estimate the pressure distribution on the blade, then those loads were transferred to the structural domain using one-way fluid-structure interaction. The final step examined natural frequencies and possible resonance risk under operating conditions.
