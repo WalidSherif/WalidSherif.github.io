@@ -1,8 +1,34 @@
 ---
-title: "DC Motor With Torque Control"
-description: "Motor modeling with torque control strategy and response testing."
-categories: [Control Systems, Simulation]
-files:
-  - name: "Report (PDF)"
-    path: "../projects/DC_motor_with_torque_control-4.pdf"
+title: DC Motor Torque Control
+description: Electrical modeling and comparison of torque-control strategies for a shunt DC motor under different control methods.
+category: Controls / Machines
+group: controls
+date_label: May 2025
+order: 7
+image: /img/projects/dc-motor-torque-control.png
+pdf: /pdf/dc-motor-torque-control.pdf
+tools:
+  - MATLAB
+  - Electric Machines
+  - Torque-Speed Analysis
+highlights:
+  - Modeled the electrical and mechanical dynamics of a shunt DC motor from torque and back-EMF relationships.
+  - Compared field-resistance control, armature-voltage control, and armature-resistance control strategies.
+  - Generated torque-speed plots to study how parameter changes affect operating behavior.
+  - Summarized trade-offs in performance, losses, and controllability across the tested methods.
 ---
+
+## Project Summary
+
+This project explored multiple torque-control strategies for DC motors from a modeling and comparative-analysis perspective.
+
+## Scope
+
+- Motor-equation derivation and analytical formulation.
+- Control-method comparison.
+- MATLAB-based torque-speed visualization.
+- Performance interpretation for each method.
+
+## Outcome
+
+The report presents a clear electrical-machine control study grounded in equations, plots, and method comparison.
