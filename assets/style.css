@@ -166,9 +166,10 @@ html[data-theme="dark"] .site-header {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.35fr 0.95fr;
-  gap: 32px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 36px;
   align-items: start;
+}
 }
 
 .hero-title {
@@ -208,7 +209,7 @@ html[data-theme="dark"] .site-header {
 
 .hero-photo-card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 4.8;
   object-fit: cover;
 }
 
