@@ -7,7 +7,7 @@ group: power
 date_label: December 2024
 order: 9
 image: "/img/projects/transmission-line.png"
-pdf: "/projects/TL%20DESIGN.pdf"
+pdf: "/projects/transmission-line.pdf"
 tools:
   - MATLAB
   - Power Systems
