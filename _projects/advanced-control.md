@@ -1,12 +1,13 @@
 ---
+layout: project
 title: Motor Speed Controller with Integral Action
 description: Real-time motor-speed control project using system identification, state-space feedback, and integral action with hardware validation.
 category: Controls
 group: controls
 date_label: 2025–2026
 order: 5
-image: /img/projects/motor-speed-controller.png
-pdf: /pdf/motor-speed-controller.pdf
+image: "/img/projects/motor-speed-control.png"
+pdf: "/projects/Adv_Control_Project_Report%20%281%29.pdf"
 tools:
   - MATLAB
   - Simulink Connected I/O
@@ -19,17 +20,6 @@ highlights:
   - Evaluated closed-loop behavior experimentally and discussed actuator saturation and anti-windup considerations.
 ---
 
-## Project Summary
+This project focused on real-time speed control of a DC motor using experimental modeling and state-space controller design. A first-order model was identified from measured data, then used to build a feedback controller with integral action.
 
-This project combined modeling, controller design, and hardware validation for a closed-loop DC motor speed-control system.
-
-## Scope
-
-- Experimental data collection and model estimation.
-- State-space control design with integral action.
-- Real-time implementation and encoder-based speed feedback.
-- Experimental discussion of practical nonidealities such as saturation.
-
-## Outcome
-
-The project demonstrates strong alignment with modern control implementation and validation workflows.
+The controller was implemented through hardware interfacing and validated experimentally. The work emphasized practical control implementation, real-time testing, and interpretation of closed-loop performance.
