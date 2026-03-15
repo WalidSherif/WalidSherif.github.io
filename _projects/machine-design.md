@@ -1,12 +1,13 @@
 ---
+layout: project
 title: Two-Stage Gearbox Design and CAD Assembly
 description: Machine-design project covering gear-ratio design, force and stress calculations, component selection, and CAD assembly.
 category: Mechanical Design
 group: mechanical
 date_label: May 2025
 order: 4
-image: /img/projects/machine-design-gearbox.png
-pdf: /pdf/machine-design-gearbox.pdf
+image: "/img/projects/machine-design-gearbox.png"
+pdf: "/projects/MACHINE_DESIGN%20%281%29.pdf"
 tools:
   - Autodesk Inventor
   - SOLIDWORKS
@@ -19,17 +20,6 @@ highlights:
   - Supported component-level validation and drawing preparation for a complete mechanical assembly.
 ---
 
-## Project Summary
+This project involved the mechanical design of a two-stage gearbox system for power transmission. The work included ratio selection, force and torque calculations, gear design checks, and mechanical component selection.
 
-This course project integrated analytical machine-design calculations with CAD implementation and assembly verification.
-
-## Scope
-
-- Gear-ratio and loading calculations.
-- Shaft, key, and bearing-related design tasks.
-- CAD assembly and casing development.
-- Documentation of engineering calculations and final drawing work.
-
-## My Contribution
-
-My documented contribution included several core gear-design sections and the full casing and assembly integration tasks.
+In addition to the analytical calculations, the gearbox was modeled and assembled in CAD to verify fit, arrangement, and integration. The project emphasized practical design methodology, stress assessment, and documentation.
