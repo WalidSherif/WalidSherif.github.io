@@ -1,12 +1,13 @@
 ---
+layout: project
 title: Single-Phase Inverter Modulation Study
 description: MATLAB/Simulink study of inverter modulation strategies including square wave, SHE, bipolar PWM, unipolar PWM, and multilevel operation.
 category: Power Electronics
 group: power
 date_label: December 2025
 order: 8
-image: /img/projects/power-electronics-inverter.png
-pdf: /pdf/power-electronics-inverter.pdf
+image: "/img/projects/power-electronics-inverter.png"
+pdf: "/projects/power_electronics_project%20%284%29%20%281%29.pdf"
 tools:
   - MATLAB
   - Simulink
@@ -19,17 +20,6 @@ highlights:
   - Extended the work with a multilevel inverter configuration and THD-focused performance comparison.
 ---
 
-## Project Summary
+This project analyzed inverter-output waveform generation using multiple modulation techniques in MATLAB and Simulink. The study compared waveform quality, switching behavior, and harmonic performance across several practical inverter strategies.
 
-This project studied how modulation strategy affects waveform quality, harmonics, and inverter performance in a single-phase converter.
-
-## Scope
-
-- MATLAB and Simulink implementation of multiple modulation techniques.
-- Harmonic-elimination and PWM comparison.
-- THD-oriented waveform evaluation.
-- Extended multilevel inverter study.
-
-## Outcome
-
-The report demonstrates structured comparison of switching strategies for improved power quality.
+The final comparison highlighted the trade-offs between implementation complexity and output quality, with particular focus on harmonic suppression and total harmonic distortion.
