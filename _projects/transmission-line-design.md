@@ -22,3 +22,4 @@ highlights:
 This project addressed the design of a long-distance high-voltage transmission line for large-scale power delivery. Different voltage levels and conductor configurations were evaluated to determine the most effective design from both technical and operational perspectives.
 
 The study used MATLAB-based calculations to compare losses, regulation, efficiency, and line limits, then selected an optimized configuration based on the full engineering trade-off.
+result: Designed a transmission solution for delivering 800 MW over 160 km and identified the most effective voltage-level configuration.
