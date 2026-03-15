@@ -1,8 +1,6 @@
 title: Walid Sherif — Engineering Portfolio
 email: waleedshereef65@gmail.com
-description: Portfolio of engineering projects in control systems, power electronics, CFD/FEA, and renewable energy.
-
-# User site (repo name WalidSherif.github.io)
+description: Portfolio of engineering projects in CFD, FEA, control systems, power electronics, and renewable energy.
 url: "https://walidsherif.github.io"
 baseurl: ""
 
@@ -14,9 +12,13 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: projects
     values:
       layout: default
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
 
 markdown: kramdown
 kramdown:
@@ -33,6 +35,5 @@ exclude:
   - node_modules
   - vendor
 
-# Optional, keeps compatibility with Naqeeb's repo settings style
 github:
   is_project_page: false
