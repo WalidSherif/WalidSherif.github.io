@@ -23,3 +23,4 @@ highlights:
 This project analyzed inverter-output waveform generation using multiple modulation techniques in MATLAB and Simulink. The study compared waveform quality, switching behavior, and harmonic performance across several practical inverter strategies.
 
 The final comparison highlighted the trade-offs between implementation complexity and output quality, with particular focus on harmonic suppression and total harmonic distortion.
+result: Compared multiple inverter modulation strategies and evaluated waveform quality and harmonic performance.
